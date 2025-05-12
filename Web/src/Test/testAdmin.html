@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EcoSense Admin Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js"
+      defer
+    ></script>
+    <style>
+      [x-cloak] {
+        display: none !important;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100" x-data="{ openMenu: false }">
+    <!-- Sidebar -->
+    <div
+      :class="openMenu ? 'translate-x-0' : '-translate-x-full'"
+      class="fixed inset-0 z-50 bg-gray-800 bg-opacity-75 md:hidden"
+      @click="openMenu = false"
+    ></div>
+    <aside
+      :class="openMenu ? 'translate-x-0' : '-translate-x-full'"
+      class="fixed top-0 left-0 z-40 w-64 h-full bg-green-700 text-white transition-transform transform md:translate-x-0"
+    >
+      <div class="flex items-center justify-between p-4">
+        <span class="text-2xl font-bold">EcoSense Admin</span>
+        <button @click="openMenu = false" class="text-white">X</button>
+      </div>
+      <nav class="mt-6">
+        <a href="#" class="block py-2 px-4 hover:bg-green-600">Dashboard</a>
+        <a href="#" class="block py-2 px-4 hover:bg-green-600">Reports</a>
+        <a href="#" class="block py-2 px-4 hover:bg-green-600">Users</a>
+        <a href="#" class="block py-2 px-4 hover:bg-green-600">Analytics</a>
+        <a href="#" class="block py-2 px-4 hover:bg-green-600">Settings</a>
+        <a href="#" class="block py-2 px-4 hover:bg-green-600">Logout</a>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="flex flex-1 flex-col ml-0 md:ml-64">
+      <!-- Navbar -->
+      <header
+        class="flex justify-between items-center p-4 bg-white shadow-md md:hidden"
+      >
+        <button @click="openMenu = !openMenu" class="text-green-700">
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            ></path>
+          </svg>
+        </button>
+        <span class="text-2xl font-bold text-green-700">EcoSense Admin</span>
+      </header>
+
+      <!-- Dashboard Content -->
+      <main class="p-6">
+        <h1 class="text-3xl font-bold text-green-700 mb-6">
+          Dashboard Overview
+        </h1>
+
+        <!-- Stats Cards -->
+        <section
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10"
+        >
+          <div class="bg-white p-5 rounded-lg shadow">
+            <h3 class="text-lg font-semibold text-gray-600">Total Reports</h3>
+            <p class="text-3xl font-bold text-green-700 mt-2">128</p>
+          </div>
+          <div class="bg-white p-5 rounded-lg shadow">
+            <h3 class="text-lg font-semibold text-gray-600">Active Users</h3>
+            <p class="text-3xl font-bold text-green-700 mt-2">54</p>
+          </div>
+          <div class="bg-white p-5 rounded-lg shadow">
+            <h3 class="text-lg font-semibold text-gray-600">Resolved Cases</h3>
+            <p class="text-3xl font-bold text-green-700 mt-2">89</p>
+          </div>
+          <div class="bg-white p-5 rounded-lg shadow">
+            <h3 class="text-lg font-semibold text-gray-600">Pending Rewards</h3>
+            <p class="text-3xl font-bold text-green-700 mt-2">12</p>
+          </div>
+        </section>
+
+        <!-- Recent Reports Table -->
+        <section class="bg-white p-6 rounded-lg shadow">
+          <h2 class="text-xl font-bold mb-4">Recent Waste Reports</h2>
+          <div class="overflow-x-auto">
+            <table class="min-w-full text-left text-sm">
+              <thead class="bg-gray-100 text-gray-600 uppercase">
+                <tr>
+                  <th class="px-4 py-2">ID</th>
+                  <th class="px-4 py-2">User</th>
+                  <th class="px-4 py-2">Location</th>
+                  <th class="px-4 py-2">Status</th>
+                  <th class="px-4 py-2">Date</th>
+                  <th class="px-4 py-2">Actions</th>
+                </tr>
+              </thead>
+              <tbody class="text-gray-700">
+                <tr class="border-t">
+                  <td class="px-4 py-2">#RPT123</td>
+                  <td class="px-4 py-2">Jane Wambui</td>
+                  <td class="px-4 py-2">Nairobi</td>
+                  <td class="px-4 py-2 text-green-600">Resolved</td>
+                  <td class="px-4 py-2">May 10, 2025</td>
+                  <td class="px-4 py-2">
+                    <button
+                      class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700"
+                    >
+                      View Details
+                    </button>
+                  </td>
+                </tr>
+                <tr class="border-t">
+                  <td class="px-4 py-2">#RPT124</td>
+                  <td class="px-4 py-2">Brian Otieno</td>
+                  <td class="px-4 py-2">Kisumu</td>
+                  <td class="px-4 py-2 text-yellow-600">Pending</td>
+                  <td class="px-4 py-2">May 9, 2025</td>
+                  <td class="px-4 py-2">
+                    <button
+                      class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700"
+                    >
+                      View Details
+                    </button>
+                  </td>
+                </tr>
+                <tr class="border-t">
+                  <td class="px-4 py-2">#RPT125</td>
+                  <td class="px-4 py-2">Faith Njeri</td>
+                  <td class="px-4 py-2">Thika</td>
+                  <td class="px-4 py-2 text-red-600">Rejected</td>
+                  <td class="px-4 py-2">May 8, 2025</td>
+                  <td class="px-4 py-2">
+                    <button
+                      class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700"
+                    >
+                      View Details
+                    </button>
+                  </td>
+                </tr>
+                <tr class="border-t">
+                  <td class="px-4 py-2">#RPT126</td>
+                  <td class="px-4 py-2">Kevin Kiprotich</td>
+                  <td class="px-4 py-2">Eldoret</td>
+                  <td class="px-4 py-2 text-green-600">Resolved</td>
+                  <td class="px-4 py-2">May 7, 2025</td>
+                  <td class="px-4 py-2">
+                    <button
+                      class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700"
+                    >
+                      View Details
+                    </button>
+                  </td>
+                </tr>
+                <tr class="border-t">
+                  <td class="px-4 py-2">#RPT127</td>
+                  <td class="px-4 py-2">Linet Achieng</td>
+                  <td class="px-4 py-2">Homa Bay</td>
+                  <td class="px-4 py-2 text-yellow-600">Pending</td>
+                  <td class="px-4 py-2">May 7, 2025</td>
+                  <td class="px-4 py-2">
+                    <button
+                      class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700"
+                    >
+                      View Details
+                    </button>
+                  </td>
+                </tr>
+                <tr class="border-t">
+                  <td class="px-4 py-2">#RPT128</td>
+                  <td class="px-4 py-2">Daniel Mwangi</td>
+                  <td class="px-4 py-2">Nakuru</td>
+                  <td class="px-4 py-2 text-green-600">Resolved</td>
+                  <td class="px-4 py-2">May 6, 2025</td>
+                  <td class="px-4 py-2">
+                    <button
+                      class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700"
+                    >
+                      View Details
+                    </button>
+                  </td>
+                </tr>
+                <tr class="border-t">
+                  <td class="px-4 py-2">#RPT129</td>
+                  <td class="px-4 py-2">Stacy Muthoni</td>
+                  <td class="px-4 py-2">Nyeri</td>
+                  <td class="px-4 py-2 text-yellow-600">Pending</td>
+                  <td class="px-4 py-2">May 5, 2025</td>
+                  <td class="px-4 py-2">
+                    <button
+                      class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700"
+                    >
+                      View Details
+                    </button>
+                  </td>
+                </tr>
+                <tr class="border-t">
+                  <td class="px-4 py-2">#RPT130</td>
+                  <td class="px-4 py-2">Joseph Kariuki</td>
+                  <td class="px-4 py-2">Meru</td>
+                  <td class="px-4 py-2 text-green-600">Resolved</td>
+                  <td class="px-4 py-2">May 4, 2025</td>
+                  <td class="px-4 py-2">
+                    <button
+                      class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700"
+                    >
+                      View Details
+                    </button>
+                  </td>
+                </tr>
+                <tr class="border-t">
+                  <td class="px-4 py-2">#RPT131</td>
+                  <td class="px-4 py-2">Alice Chebet</td>
+                  <td class="px-4 py-2">Kericho</td>
+                  <td class="px-4 py-2 text-red-600">Rejected</td>
+                  <td class="px-4 py-2">May 4, 2025</td>
+                  <td class="px-4 py-2">
+                    <button
+                      class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700"
+                    >
+                      View Details
+                    </button>
+                  </td>
+                </tr>
+                <tr class="border-t">
+                  <td class="px-4 py-2">#RPT132</td>
+                  <td class="px-4 py-2">Elijah Mutua</td>
+                  <td class="px-4 py-2">Machakos</td>
+                  <td class="px-4 py-2 text-green-600">Resolved</td>
+                  <td class="px-4 py-2">May 3, 2025</td>
+                  <td class="px-4 py-2">
+                    <button
+                      class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700"
+                    >
+                      View Details
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
