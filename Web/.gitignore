@@ -22,3 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+# test
+testM.html
+testW.html
+testX.html
+Test
