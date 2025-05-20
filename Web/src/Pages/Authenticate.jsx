@@ -33,7 +33,6 @@ const Authenticate = () => {
           </p>
         </div>
 
-        {/* Portal Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Admin Portal */}
           <a
@@ -114,7 +113,6 @@ const Authenticate = () => {
           </a>
         </div>
 
-        {/* CTA */}
         <div className="mt-20 text-center">
           <h3 className="text-2xl font-bold text-gray-800 mb-4">
             Ready to make a difference?
@@ -125,13 +123,13 @@ const Authenticate = () => {
           </p>
           <div className="flex justify-center space-x-4">
             <a
-              href="/testWeb"
+              href="#"
               className="px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition duration-300"
             >
-              Learn More
+              Download App
             </a>
             <a
-              href="/testUser"
+              href="/User"
               className="px-6 py-3 border border-green-600 text-green-600 rounded-lg hover:bg-green-50 transition duration-300"
             >
               Get Started
@@ -144,7 +142,6 @@ const Authenticate = () => {
       <footer className="bg-white border-t border-gray-200 mt-20">
         <div className="max-w-7xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
           <div className="md:flex md:items-center md:justify-between">
-            {/* Social Icons */}
             <div className="flex justify-center md:order-2 space-x-6">
               <a
                 href="#"
