@@ -48,7 +48,7 @@ const UserDashboard = () => {
             Settings
           </a>
           <a
-            href="pages.html"
+            href="/"
             className="block py-2 px-3 lg:px-4 rounded hover:bg-green-600 transition-all duration-300 text-sm lg:text-base"
           >
             Logout
