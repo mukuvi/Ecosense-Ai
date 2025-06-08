@@ -1,7 +1,7 @@
 import React from "react";
 import { FaFacebookF, FaTwitter } from "react-icons/fa";
 
-const Authenticate = () => {
+const Authenticate: React.FC = () => {
   return (
     <div className="min-h-screen font-[Inter] bg-gradient-to-br from-green-50 to-green-100">
       {/* Header */}

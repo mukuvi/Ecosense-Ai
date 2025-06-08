@@ -9,7 +9,6 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Authenticate />} />
-
         <Route path="/User" element={<UserDashboard />} />
         <Route path="/Admin" element={<AdminDashboard />} />
       </Routes>
